@@ -1,4 +1,4 @@
-user_prompt = "Type add, show or exit: "
+user_prompt = "Type add, show, edit or exit: "
 
 todos = []
 
@@ -10,7 +10,13 @@ while True:
         todo = input("Enter a todo: ")
         todos.append(todo)
     elif user_action == "show":
-        print(todos)
+        for item in todos:
+            print(item)
+    elif user_action == "edit":
+        number = int(input("Number of the todo to edit: "))
+        number = number - 1
+        new_todo = input("Enter new todo: ")
+        todos[number] = new_todo
     elif user_action == "exit":
         break
     else:
