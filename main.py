@@ -1,8 +1,16 @@
-user_prompt = "Enter a todo: "
+user_prompt = "Type add, show or exit: "
 
 todos = []
 
 while True:
-    todo = input(user_prompt)
-    print(todo.capitalize())
-    todos.append(todo)
+    user_action = input(user_prompt)
+    
+    if user_action == "add":
+        todo = input("Enter a todo: ")
+        todos.append(todo)
+    elif user_action == "show":
+        print(todos)
+    elif user_action == "exit":
+        break
+    else:
+        print("Could not understand command")
