@@ -4,6 +4,7 @@ todos = []
 
 while True:
     user_action = input(user_prompt)
+    user_action = user_action.strip()
     
     if user_action == "add":
         todo = input("Enter a todo: ")
