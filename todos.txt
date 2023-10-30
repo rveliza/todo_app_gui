@@ -1,7 +1,7 @@
 correct
 show
-dig
-compute
+digger
 code
 show
 pray
+improvise
