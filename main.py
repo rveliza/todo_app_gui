@@ -28,12 +28,31 @@ while True:
     elif user_action == "edit":
         number = int(input("Number of the todo to edit: "))
         number = number - 1
+
+        with open("todos.txt", "r") as file:
+            todos = file.readlines()
+
         new_todo = input("Enter new todo: ")
-        todos[number] = new_todo
+        todos[number] = new_todo + "\n"
+
+        with open("todos.txt", "w") as file:
+            file.writelines(todos)
     
     elif user_action == "complete":
         number = int(input("Number of the todo to complete: "))
-        todos.pop(number - 1)
+
+        with open("todos.txt", "r") as file:
+            todos = file.readlines()
+
+
+        removed_todo = todos.pop(number - 1).strip("\n")
+
+
+        with open("todos.txt", "w") as file:
+            file.writelines(todos)
+
+        message = f"Todo {removed_todo} was removed from the list."
+        print(message)
 
     elif user_action == "exit":
         break
