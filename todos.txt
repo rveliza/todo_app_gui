@@ -5,3 +5,7 @@ code
 show
 pray
 improvise
+Master Python
+Drink pills
+Add edit button
+Finish
