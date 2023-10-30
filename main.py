@@ -1,4 +1,4 @@
-user_prompt = "Type add, show, edit or exit: "
+user_prompt = "Type add, show, edit, complete or exit: "
 
 todos = []
 
@@ -19,6 +19,10 @@ while True:
         number = number - 1
         new_todo = input("Enter new todo: ")
         todos[number] = new_todo
+    
+    elif user_action == "complete":
+        number = int(input("Number of the todo to complete: "))
+        todos.pop(number - 1)
 
     elif user_action == "exit":
         break
