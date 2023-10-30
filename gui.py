@@ -1,6 +1,11 @@
 import functions
 import PySimpleGUI as sg
 import time
+import os
+
+if not os.path.exists("todos.txt"):
+    with open("todos.txt", "w") as file:
+        pass
 
 sg.theme("Black")
 
@@ -27,8 +32,6 @@ window = sg.Window("My To-Do App",
 while True:
     event, values = window.read(timeout=200)
     window["clock"].update(value=time.strftime("%b %d, %Y %H:%M:%S"))
-    print(event) # Add
-    print(values) # ('Add', {'todo': 'hi'})
     if event == "Add":
         todos = functions.get_todos()
         new_todo = values["todo"] + "\n"
