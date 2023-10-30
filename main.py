@@ -5,8 +5,8 @@ while True:
     user_action = input(user_prompt)
     user_action = user_action.strip()
     
-    if user_action == "add":
-        todo = input("Enter a todo: ") + "\n"
+    if "add" in user_action:
+        todo = user_action[4:]
         
         with open("todos.txt", "r") as file:
             todos = file.readlines()
@@ -16,7 +16,7 @@ while True:
         with open("todos.txt", "w") as file:
             file.writelines(todos)
 
-    elif user_action == "show":
+    elif "show" in user_action:
         with open("todos.txt", "r") as file:
             todos = file.readlines()
 
@@ -25,7 +25,7 @@ while True:
         for index, item in enumerate(new_todos):
             print(f"{index + 1} - {item}")
 
-    elif user_action == "edit":
+    elif "edit" in user_action:
         number = int(input("Number of the todo to edit: "))
         number = number - 1
 
@@ -38,7 +38,7 @@ while True:
         with open("todos.txt", "w") as file:
             file.writelines(todos)
     
-    elif user_action == "complete":
+    elif "complete" in user_action:
         number = int(input("Number of the todo to complete: "))
 
         with open("todos.txt", "r") as file:
@@ -54,7 +54,7 @@ while True:
         message = f"Todo {removed_todo} was removed from the list."
         print(message)
 
-    elif user_action == "exit":
+    elif "exit" in user_action:
         break
 
     else:
