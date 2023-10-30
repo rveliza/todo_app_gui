@@ -1,5 +1,6 @@
 eat
 show
-sleep
-excercise
-run
+dig
+compute
+program
+show
