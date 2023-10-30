@@ -2,5 +2,6 @@ correct
 show
 dig
 compute
-program
+code
 show
+pray
