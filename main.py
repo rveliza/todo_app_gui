@@ -1,14 +1,22 @@
 user_prompt = "Type add, show, edit, complete or exit: "
 
-todos = []
 
 while True:
     user_action = input(user_prompt)
     user_action = user_action.strip()
     
     if user_action == "add":
-        todo = input("Enter a todo: ")
+        todo = input("Enter a todo: ") + "\n"
+        
+        file = open("todos.txt", "r")
+        todos = file.readlines()
+        file.close()
+
         todos.append(todo)
+
+        file = open("todos.txt", "w")
+        file.writelines(todos)
+        file.close()
 
     elif user_action == "show":
         for index, item in enumerate(todos):
