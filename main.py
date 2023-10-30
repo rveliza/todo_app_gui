@@ -19,7 +19,13 @@ while True:
         file.close()
 
     elif user_action == "show":
-        for index, item in enumerate(todos):
+        file = open("todos.txt", "r")
+        todos = file.readlines()
+        file.close()
+
+        new_todos = [item.strip("\n") for item in todos]
+
+        for index, item in enumerate(new_todos):
             print(f"{index + 1} - {item}")
 
     elif user_action == "edit":
